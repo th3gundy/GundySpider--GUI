@@ -1,7 +1,7 @@
-
 GundySpider - GUI
 
-v1.0 Bir web sitesinde istenilen uzantıdaki dosyaları (pdf,txt vs) bulma.
+v1.0 Bir web sitesinde istenilen uzantıdaki dosyaları (pdf,txt vs) bulma ve indirmeye yarar.
+Java dili ile yazilmistir.
 
 Kullanımı :
 
