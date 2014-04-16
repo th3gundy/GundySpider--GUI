@@ -9,4 +9,6 @@ Address kısmına hedef siteyi https -- www olmadan giriniz,
 
 File Type kısmına ise arayacağınız dosyanın uzantısını giriniz (pdf,txt,doc vs.)
 
+indirmek istediginiz dosyayı listeden seçerek (tıklayarak) indirebilirsiniz.
+
 
