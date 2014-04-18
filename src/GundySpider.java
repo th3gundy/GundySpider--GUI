@@ -76,7 +76,7 @@ public class GundySpider extends JFrame {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Errör : \n " + e.toString() ,"Errör", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Errï¿½r : \n " + e.toString() ,"Errï¿½r", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
@@ -115,7 +115,7 @@ public class GundySpider extends JFrame {
 				                	try {
 										downloadFile(list.getSelectedValue(), "");
 									} catch (Exception e) {
-										JOptionPane.showMessageDialog(null, "Errör : \n " + e.toString() ,"Errör", JOptionPane.ERROR_MESSAGE);
+										JOptionPane.showMessageDialog(null, "Errï¿½r : \n " + e.toString() ,"Errï¿½r", JOptionPane.ERROR_MESSAGE);
 									}
 				                        //Thread.sleep(5);
 				                }
@@ -166,7 +166,7 @@ public class GundySpider extends JFrame {
 							    sendGet(txtAddress.getText(), txtFileType.getText(), page);
 							    //progressBar.setValue( (page%10)*2 );
 							} catch (Exception e) {
-								JOptionPane.showMessageDialog(null, "Errör : \n" + e.toString());
+								JOptionPane.showMessageDialog(null, "Errï¿½r : \n" + e.toString());
 							}
 							page += 100;
 						  }
@@ -201,7 +201,7 @@ public class GundySpider extends JFrame {
 						try {
 						    sendGet(txtAddress.getText(), txtFileType.getText(), page);
 						} catch (Exception e) {
-							JOptionPane.showMessageDialog(null, "Errör : \n" + e.toString());
+							JOptionPane.showMessageDialog(null, "Errï¿½r : \n" + e.toString());
 						}
 						page += 100;
 					  }
@@ -236,8 +236,8 @@ public class GundySpider extends JFrame {
 		JMenu mnFile = new JMenu("File");
 		menuBar.add(mnFile);
 		
-		JMenuItem mnýtmSaveAll = new JMenuItem("Save All");
-		mnýtmSaveAll.addActionListener(new ActionListener() {
+		JMenuItem mnitmSaveAll = new JMenuItem("Save All");
+		mnitmSaveAll.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			   if( (list.getModel().getSize() != 0) && (JOptionPane.showConfirmDialog(null, "Are You Sure Download All Items ?") == 0 ) ){
 					ThrdDownload = new Thread(new Runnable() {
@@ -250,7 +250,7 @@ public class GundySpider extends JFrame {
 									downloadFile(list.getModel().getElementAt(i), "");
 									i++;
 								} catch (Exception e) {
-									JOptionPane.showMessageDialog(null, "Errör : \n " + e.toString() ,"Errör", JOptionPane.ERROR_MESSAGE);
+									JOptionPane.showMessageDialog(null, "Errï¿½r : \n " + e.toString() ,"Errï¿½r", JOptionPane.ERROR_MESSAGE);
 								}
 			                        //Thread.sleep(5);
 			                }
@@ -260,7 +260,7 @@ public class GundySpider extends JFrame {
 			   }
 			}
 		});
-		mnFile.add(mnýtmSaveAll);
+		mnFile.add(mnitmSaveAll);
 		
 		JMenu mnAbout = new JMenu("About");
 		mnAbout.addMouseListener(new MouseAdapter() {
@@ -317,11 +317,11 @@ public class GundySpider extends JFrame {
 		}
 		in.close();
 	} else {
-		JOptionPane.showMessageDialog(null, "Bad Connection. Responce Code : " + responseCode , "Errör", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Bad Connection. Responce Code : " + responseCode , "Errï¿½r", JOptionPane.ERROR_MESSAGE);
 		System.exit(0);
 	}
      } catch (Exception e) {
-		JOptionPane.showMessageDialog(null, "Errör : " + e.getMessage() , "Errör", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Errï¿½r : " + e.getMessage() , "Errï¿½r", JOptionPane.ERROR_MESSAGE);
 	  }
      txtAddress.setEnabled(true);
 	 txtFileType.setEnabled(true);
