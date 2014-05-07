@@ -11,4 +11,7 @@ File Type kısmına ise arayacağınız dosyanın uzantısını giriniz (pdf,txt
 
 indirmek istediginiz dosyayı listeden seçerek (tıklayarak) indirebilirsiniz.
 
+Edit: 
+- Dosya araması için ve arama sırasında progressBarın dolumu için thread yazıldı.
 
+- Search butonu eventları sırasında çalışan kodlar için optimizasyon yapıldı.
