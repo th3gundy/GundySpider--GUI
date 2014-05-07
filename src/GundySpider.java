@@ -76,8 +76,12 @@ public class GundySpider extends JFrame {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
+<<<<<<< HEAD
 			JOptionPane.showMessageDialog(null, "Errör : \n " + e.toString(),
 					"Errör", JOptionPane.ERROR_MESSAGE);
+=======
+			JOptionPane.showMessageDialog(null, "Errï¿½r : \n " + e.toString() ,"Errï¿½r", JOptionPane.ERROR_MESSAGE);
+>>>>>>> 56114d59f0f4a887d976e9d9934700be397baa30
 		}
 
 		JScrollPane scrollPane_1 = new JScrollPane();
@@ -106,6 +110,7 @@ public class GundySpider extends JFrame {
 		list.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+<<<<<<< HEAD
 				if ((list.getSelectedIndex() != -1)
 						&& (JOptionPane.showConfirmDialog(null,
 								"Are You Sure For Download ?") == 0)) {
@@ -127,6 +132,25 @@ public class GundySpider extends JFrame {
 						}
 					});
 					ThrdDownload.start();
+=======
+				if( (list.getSelectedIndex() != -1) && (JOptionPane.showConfirmDialog(null, "Are You Sure For Download ?") == 0 ) ){
+					status.setText(status.getText()+ "\nDownloading to " + list.getSelectedValue());
+					
+						ThrdDownload = new Thread(new Runnable() {
+				            @Override
+				            public void run() {
+				                while(true){
+				                	try {
+										downloadFile(list.getSelectedValue(), "");
+									} catch (Exception e) {
+										JOptionPane.showMessageDialog(null, "Errï¿½r : \n " + e.toString() ,"Errï¿½r", JOptionPane.ERROR_MESSAGE);
+									}
+				                        //Thread.sleep(5);
+				                }
+				            }
+				        });
+				        ThrdDownload.start();
+>>>>>>> 56114d59f0f4a887d976e9d9934700be397baa30
 				}
 			}
 		});
@@ -154,6 +178,7 @@ public class GundySpider extends JFrame {
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 				model.clear();
+<<<<<<< HEAD
 				if (arg0.getKeyCode() == KeyEvent.VK_ENTER)
 					ThrdSearch = new Thread(new Runnable() {
 						@Override
@@ -162,6 +187,40 @@ public class GundySpider extends JFrame {
 						}
 					});
 				ThrdSearch.start();
+=======
+				progressBar.setValue(0);
+				if(arg0.getKeyCode() == KeyEvent.VK_ENTER){
+					
+					if(!( txtAddress.getText().isEmpty() || txtFileType.getText().isEmpty() )){
+						txtAddress.setEnabled(false);
+						txtFileType.setEnabled(false);
+						status.setText(null);
+						status.setText("Connecting to Google \n");
+						status.setText(status.getText() +  "Starting Search ...\n\n");
+						status.setText(status.getText() + "Sending 'GET' request to  :\n   " );
+						long start = System.currentTimeMillis();
+						  page=0;
+						  while(page < 500 ){
+							try {
+							    sendGet(txtAddress.getText(), txtFileType.getText(), page);
+							    //progressBar.setValue( (page%10)*2 );
+							} catch (Exception e) {
+								JOptionPane.showMessageDialog(null, "Errï¿½r : \n" + e.toString());
+							}
+							page += 100;
+						  }
+						  //progressBar.setValue((int) (page%10)*2);
+						  progressBar.setValue(100);
+						status.setText(status.getText() + "\n\nAnalysing URL...\n");
+						long end = System.currentTimeMillis();
+						status.setText(status.getText() + "\nTotal number of founded URL : " + list.getModel().getSize() +"\n");
+						status.setText(status.getText() + "Total time : " + (float)(end-start)/1000 + " sn\n");
+						status.setText(status.getText() + "\nFor Downloading Clicked URL on List\n");
+						} else {
+							JOptionPane.showMessageDialog(null, "Please Enter the Address and File Type", "Missing Value", JOptionPane.WARNING_MESSAGE);
+						  }
+				}
+>>>>>>> 56114d59f0f4a887d976e9d9934700be397baa30
 			}
 		});
 
@@ -169,6 +228,7 @@ public class GundySpider extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				model.clear();
+<<<<<<< HEAD
 				ThrdSearch = new Thread(new Runnable() {
 					@Override
 					public void run() {
@@ -176,6 +236,34 @@ public class GundySpider extends JFrame {
 					}
 				});
 				ThrdSearch.start();
+=======
+				progressBar.setValue(0);
+				 if(!( txtAddress.getText().isEmpty() || txtFileType.getText().isEmpty() )){
+					txtAddress.setEnabled(false);
+					txtFileType.setEnabled(false);
+					status.setText(null);
+					status.setText("Connecting to Google \n");
+					status.setText(status.getText() +  "Starting Search ...\n\n");
+					status.setText(status.getText() + "Sending 'GET' request to  :\n   " );
+					long start = System.currentTimeMillis();
+					  page=0;
+					  while(page < 500 ){
+						try {
+						    sendGet(txtAddress.getText(), txtFileType.getText(), page);
+						} catch (Exception e) {
+							JOptionPane.showMessageDialog(null, "Errï¿½r : \n" + e.toString());
+						}
+						page += 100;
+					  }
+					status.setText(status.getText() + "\n\nAnalysing URL...\n");
+					long end = System.currentTimeMillis();
+					status.setText(status.getText() + "\nTotal number of founded URL : " + list.getModel().getSize() +"\n");
+					status.setText(status.getText() + "Total time : " + (float)(end-start)/1000 + " sn\n");
+					status.setText(status.getText() + "\nFor Downloading Clicked URL on List\n");
+				 } else {
+					 JOptionPane.showMessageDialog(null, "Please Enter the Address and File Type", "Missing Value", JOptionPane.WARNING_MESSAGE);
+				 }
+>>>>>>> 56114d59f0f4a887d976e9d9934700be397baa30
 			}
 		});
 		btnAra.setBounds(545, 32, 80, 23);
@@ -198,10 +286,16 @@ public class GundySpider extends JFrame {
 
 		JMenu mnFile = new JMenu("File");
 		menuBar.add(mnFile);
+<<<<<<< HEAD
 
-		JMenuItem mnýtmSaveAll = new JMenuItem("Save All");
-		mnýtmSaveAll.addActionListener(new ActionListener() {
+		JMenuItem mnitmSaveAll = new JMenuItem("Save All");
+		mnitmSaveAll.addActionListener(new ActionListener() {
 			@Override
+=======
+		
+		JMenuItem mnitmSaveAll = new JMenuItem("Save All");
+		mnitmSaveAll.addActionListener(new ActionListener() {
+>>>>>>> 56114d59f0f4a887d976e9d9934700be397baa30
 			public void actionPerformed(ActionEvent arg0) {
 				if ((list.getModel().getSize() != 0)
 						&& (JOptionPane.showConfirmDialog(null,
@@ -219,9 +313,13 @@ public class GundySpider extends JFrame {
 											.getElementAt(i), "");
 									i++;
 								} catch (Exception e) {
+<<<<<<< HEAD
 									JOptionPane.showMessageDialog(null,
 											"Errör : \n " + e.toString(),
 											"Errör", JOptionPane.ERROR_MESSAGE);
+=======
+									JOptionPane.showMessageDialog(null, "Errï¿½r : \n " + e.toString() ,"Errï¿½r", JOptionPane.ERROR_MESSAGE);
+>>>>>>> 56114d59f0f4a887d976e9d9934700be397baa30
 								}
 							// Thread.sleep(5);
 						}
@@ -230,8 +328,13 @@ public class GundySpider extends JFrame {
 				}
 			}
 		});
-		mnFile.add(mnýtmSaveAll);
+<<<<<<< HEAD
+		mnFile.add(mnitmSaveAll);
 
+=======
+		mnFile.add(mnitmSaveAll);
+		
+>>>>>>> 56114d59f0f4a887d976e9d9934700be397baa30
 		JMenu mnAbout = new JMenu("About");
 		mnAbout.addMouseListener(new MouseAdapter() {
 			@Override
@@ -340,11 +443,27 @@ public class GundySpider extends JFrame {
 			JOptionPane.showMessageDialog(null, "Errör : " + e.getMessage(),
 					"Errör", JOptionPane.ERROR_MESSAGE);
 		}
+<<<<<<< HEAD
 		txtAddress.setEnabled(true);
 		txtFileType.setEnabled(true);
 		// ThrdSearch.stop();
 	}
 
+=======
+		in.close();
+	} else {
+		JOptionPane.showMessageDialog(null, "Bad Connection. Responce Code : " + responseCode , "Errï¿½r", JOptionPane.ERROR_MESSAGE);
+		System.exit(0);
+	}
+     } catch (Exception e) {
+		JOptionPane.showMessageDialog(null, "Errï¿½r : " + e.getMessage() , "Errï¿½r", JOptionPane.ERROR_MESSAGE);
+	  }
+     txtAddress.setEnabled(true);
+	 txtFileType.setEnabled(true);
+     //ThrdSearch.stop();
+   }
+	
+>>>>>>> 56114d59f0f4a887d976e9d9934700be397baa30
 	public void downloadFile(String fileURL, String saveDir) throws IOException {
 
 		URL url = new URL(fileURL.trim());
@@ -406,5 +525,11 @@ public class GundySpider extends JFrame {
 		httpConn.disconnect();
 		ThrdDownload.stop();
 	}
+<<<<<<< HEAD
 
 }
+=======
+	
+	
+}
+>>>>>>> 56114d59f0f4a887d976e9d9934700be397baa30
