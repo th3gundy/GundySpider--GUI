@@ -11,7 +11,15 @@ File Type kısmına ise arayacağınız dosyanın uzantısını giriniz (pdf,txt
 
 indirmek istediginiz dosyayı listeden seçerek (tıklayarak) indirebilirsiniz.
 
-Edit: 
+v1.5
 - Dosya araması için ve arama sırasında progressBarın dolumu için thread yazıldı.
 
 - Search butonu eventları sırasında çalışan kodlar için optimizasyon yapıldı.
+
++++++++++++++++
+
+
+v2.0
+- Tek arama motoru olan google'ın yanı sıra Yandex, Yahoo ve Bing eklenecek.
+
+- Jsoup kütüphanesi kullanılarak performans testi yapılacak ve projenin gidişatı şekillendirilecek.
