@@ -20,6 +20,6 @@ v1.5
 
 
 v2.0
-- Tek arama motoru olan google'ın yanı sıra Yandex, Yahoo ve Bing eklenecek.
+- Tek arama motoru olan Google'ın yanı sıra Yandex, Yahoo ve Bing eklenecek.
 
 - Jsoup kütüphanesi kullanılarak performans testi yapılacak ve projenin gidişatı şekillendirilecek.
