@@ -12,7 +12,7 @@ File Type kısmına ise arayacağınız dosyanın uzantısını giriniz (pdf,txt
 indirmek istediginiz dosyayı listeden seçerek (tıklayarak) indirebilirsiniz.
 
 v1.5
-- Dosya araması için ve arama sırasında progressBarın dolumu için thread yazıldı.
+- Dosya araması için ve arama sırasında progressBar'ın dolumu için thread yazıldı.
 
 - Search butonu eventları sırasında çalışan kodlar için optimizasyon yapıldı.
 
