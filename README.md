@@ -23,6 +23,9 @@ v2.0
 - Tek arama motoru olan Google'ın yanı sıra Yandex ve Bing eklenecek.
 
 - Jsoup kütüphanesi kullanılarak performans testi yapılacak ve projenin gidişatı şekillendirilecek.
+<<<<<<< HEAD
 
 
 +++++++++++++++
+=======
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8

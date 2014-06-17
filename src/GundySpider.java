@@ -1,4 +1,5 @@
 import java.awt.Color;
+<<<<<<< HEAD
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -45,23 +46,34 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+=======
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 
 public class GundySpider extends JFrame {
 
 	private static final int BUFFER_SIZE = 4096;
+<<<<<<< HEAD
 	private final String USER_AGENT = "Googlebot/2.1 (+http://www.google.com/bot.html)";
+=======
+	private final String USER_AGENT = "Mozilla/5.0";
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 	private final JPanel contentPane;
 	private final JTextField txtAddress;
 	private final JTextField txtFileType;
 	private final DefaultListModel<String> model;
 	private final JTextArea status;
 	private final JProgressBar progressBar;
+<<<<<<< HEAD
 	private final JList<String> linkList;
 	private final JComboBox<String> comboBox;
 	private Thread ThrdSearch, ThrdDownload;
 	int bingPage=1,yandexPage=0,proxyCounter;
 	Document doc;
 	private List<String> proxyList;
+=======
+	private Thread ThrdSearch, ThrdDownload;
+	int page;
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -104,6 +116,7 @@ public class GundySpider extends JFrame {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
+<<<<<<< HEAD
 			JOptionPane.showMessageDialog(null, "Errör : \n " + e.toString(), "Errör", JOptionPane.ERROR_MESSAGE);
 		}
 		
@@ -113,15 +126,28 @@ public class GundySpider extends JFrame {
 		contentPane.add(scrollPane_1);
 		//scrollPane_1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		
+=======
+			JOptionPane.showMessageDialog(null, "ErrÃ¶r : \n " + e.toString(), "ErrÃ¶r", JOptionPane.ERROR_MESSAGE);
+		}
+
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(75, 247, 551, 160);
+		contentPane.add(scrollPane_1);
+
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 		status = new JTextArea();
 		status.setEditable(false);
 		scrollPane_1.setViewportView(status);
 		status.setBackground(new Color(0, 0, 0));
 		status.setForeground(new Color(0, 128, 0));
 		status.setFont(new Font("Tahoma", Font.BOLD, 12));
+<<<<<<< HEAD
 		DefaultCaret caret = (DefaultCaret)status.getCaret();  
 		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 		
+=======
+
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 		JLabel lblUrl = new JLabel("URL");
 		lblUrl.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblUrl.setBounds(10, 71, 46, 14);
@@ -131,6 +157,7 @@ public class GundySpider extends JFrame {
 		scrollPane.setBounds(74, 71, 551, 160);
 		contentPane.add(scrollPane);
 
+<<<<<<< HEAD
 		linkList = new JList<String>();
 		linkList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setViewportView(linkList);
@@ -139,15 +166,31 @@ public class GundySpider extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				if ((linkList.getSelectedIndex() != -1) && (JOptionPane.showConfirmDialog(null, "Are You Sure For Download ?") == 0)) {
 					status.setText(status.getText() + "\nDownloading to " + linkList.getSelectedValue());
+=======
+		final JList<String> list = new JList<String>();
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		scrollPane.setViewportView(list);
+		list.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				if ((list.getSelectedIndex() != -1) && (JOptionPane.showConfirmDialog(null, "Are You Sure For Download ?") == 0)) {
+					status.setText(status.getText() + "\nDownloading to " + list.getSelectedValue());
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 
 					ThrdDownload = new Thread(new Runnable() {
 						@Override
 						public void run() {
 							while (true)
 								try {
+<<<<<<< HEAD
 									downloadFile(linkList.getSelectedValue(), "");
 								} catch (Exception e) {
 									JOptionPane.showMessageDialog(null, "Errör : \n " + e.toString(), "Errör", JOptionPane.ERROR_MESSAGE);
+=======
+									downloadFile(list.getSelectedValue(), "");
+								} catch (Exception e) {
+									JOptionPane.showMessageDialog(null, "ErrÃ¶r : \n " + e.toString(), "ErrÃ¶r", JOptionPane.ERROR_MESSAGE);
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 								}
 							// Thread.sleep(5);
 						}
@@ -174,18 +217,29 @@ public class GundySpider extends JFrame {
 		contentPane.add(lblDosyaTipi);
 
 		model = new DefaultListModel<String>();
+<<<<<<< HEAD
 		linkList.setModel(model);
+=======
+		list.setModel(model);
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 		JButton btnAra = new JButton("Search");
 
 		btnAra.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				model.clear();
+<<<<<<< HEAD
 				proxyCounter=0; yandexPage=0; bingPage=0;
 				ThrdSearch = new Thread(new Runnable() {
 					@Override
 					public void run() {
 						search(linkList);
+=======
+				ThrdSearch = new Thread(new Runnable() {
+					@Override
+					public void run() {
+						search(list);
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 					}
 				});
 				ThrdSearch.start();
@@ -216,11 +270,16 @@ public class GundySpider extends JFrame {
 		mnitmSaveAll.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+<<<<<<< HEAD
 				if ((linkList.getModel().getSize() != 0) && (JOptionPane.showConfirmDialog(null, "Are You Sure Download All Items ?") == 0)) {
+=======
+				if ((list.getModel().getSize() != 0) && (JOptionPane.showConfirmDialog(null, "Are You Sure Download All Items ?") == 0)) {
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 					ThrdDownload = new Thread(new Runnable() {
 						@Override
 						public void run() {
 							int i = 0;
+<<<<<<< HEAD
 							while (true && i < linkList.getModel().getSize())
 								try {
 									status.setText(status.getText() + "\nDownloading to " + linkList.getModel().getElementAt(i));
@@ -228,6 +287,15 @@ public class GundySpider extends JFrame {
 									i++;
 								} catch (Exception e) {
 									JOptionPane.showMessageDialog(null,"Errör : \n " + e.toString(),"Errör", JOptionPane.ERROR_MESSAGE);
+=======
+							while (true && i < list.getModel().getSize())
+								try {
+									status.setText(status.getText() + "\nDownloading to " + list.getModel().getElementAt(i));
+									downloadFile(list.getModel().getElementAt(i), "");
+									i++;
+								} catch (Exception e) {
+									JOptionPane.showMessageDialog(null,"ErrÃ¶r : \n " + e.toString(),"ErrÃ¶r", JOptionPane.ERROR_MESSAGE);
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 								}
 							// Thread.sleep(5);
 						}
@@ -262,6 +330,7 @@ public class GundySpider extends JFrame {
 		progressBar.setStringPainted(true);
 		progressBar.setBounds(75, 415, 550, 27);
 		contentPane.add(progressBar);
+<<<<<<< HEAD
 		
 		JLabel lblSite = new JLabel("Site");
 		lblSite.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -304,6 +373,31 @@ public class GundySpider extends JFrame {
 			long end = System.currentTimeMillis();
 			status.setLineWrap(true);
 			status.setWrapStyleWord(true);
+=======
+	}
+
+	public void search(JList list) {
+		if (!(txtAddress.getText().isEmpty() || txtFileType.getText().isEmpty())) {
+			txtAddress.setEnabled(false);
+			txtFileType.setEnabled(false);
+			status.setText(null);
+			status.setText("Connecting to Google \n");
+			status.setText(status.getText() + "Starting Search ...\n\n");
+			status.setText(status.getText() + "Sending 'GET' request to  :\n   ");
+			long start = System.currentTimeMillis();
+			page = 0;
+			while (page < 500) {
+				try {
+					sendGet(txtAddress.getText(), txtFileType.getText(), page);
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null,"ErrÃ¶r : \n" + e.toString());
+				}
+				page += 100;
+				progressBar.setValue((int) (page * 0.25));
+			}
+			status.setText(status.getText() + "\n\nAnalysing URL...\n");
+			long end = System.currentTimeMillis();
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 			status.setText(status.getText() + "\nTotal number of founded URL : " + list.getModel().getSize() + "\n");
 			status.setText(status.getText() + "Total time : " + (float) (end - start) / 1000 + " sn\n");
 			status.setText(status.getText() + "\nFor Downloading Clicked URL on List\n");
@@ -312,21 +406,37 @@ public class GundySpider extends JFrame {
 					JOptionPane.WARNING_MESSAGE);
 	}
 
+<<<<<<< HEAD
 	public void googleSearch(String site, String fileType, int page)	throws Exception {
+=======
+	public void sendGet(String site, String fileType, int page)
+			throws Exception {
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 
 		String url = "http://www.google.com/search?num=500&q=site:" + site + "+filetype:" + fileType + "&start=" + page;
 		try {
 			URL obj = new URL(url);
 			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
+<<<<<<< HEAD
 			con.setRequestMethod("GET");
 
+=======
+			// optional default is GET
+			con.setRequestMethod("GET");
+
+			// add request header
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 			con.setRequestProperty("User-Agent", USER_AGENT);
 
 			int responseCode = con.getResponseCode();
 			status.setText(status.getText() + "\n   " + url);
 
 			if (responseCode == HttpURLConnection.HTTP_OK) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
 				BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 				String inputLine = "";
 				String regex = "(><a href=\"/url\\?q=)" + "(\\S+)" + "(&amp;sa=U&amp;)";
@@ -341,6 +451,7 @@ public class GundySpider extends JFrame {
 				in.close();
 			} else {
 				JOptionPane.showMessageDialog(null,"Bad Connection. Responce Code : " + responseCode,
+<<<<<<< HEAD
 						"Errör", JOptionPane.ERROR_MESSAGE);
 				System.exit(0);
 			}
@@ -512,3 +623,73 @@ public class GundySpider extends JFrame {
 		ThrdDownload.stop();
 	}
 }
+=======
+						"ErrÃ¶r", JOptionPane.ERROR_MESSAGE);
+				System.exit(0);
+			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "ErrÃ¶r : " + e.getMessage(),"ErrÃ¶r", JOptionPane.ERROR_MESSAGE);
+		}
+		txtAddress.setEnabled(true);
+		txtFileType.setEnabled(true);
+		// ThrdSearch.stop();
+	}
+
+	public void downloadFile(String fileURL, String saveDir) throws IOException {
+
+		URL url = new URL(fileURL.trim());
+		HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+		int responseCode = httpConn.getResponseCode();
+
+		// check HTTP response code
+		if (responseCode == HttpURLConnection.HTTP_OK) {
+			String fileName = "";
+			String disposition = httpConn.getHeaderField("Content-Disposition");
+			String contentType = httpConn.getContentType();
+			int contentLength = httpConn.getContentLength();
+
+			if (disposition != null) {
+				// extracts file name from header field
+				int index = disposition.indexOf("filename=");
+				if (index > 0)
+					fileName = disposition.substring(index + 10,disposition.length() - 1);
+			} else
+				// extracts file name from URL
+				fileName = fileURL.substring(fileURL.lastIndexOf("/") + 1,fileURL.length());
+			status.setText(status.getText() + "\nContent-Type = " + contentType);
+			status.setText(status.getText() + "\nFile-Length = "  + contentLength / 1024 + " Kb");
+
+			saveDir += "GundySpider";
+			if (!(new File(saveDir).exists())) {
+				new File(saveDir).mkdir();
+				status.setText(status.getText() + "\nCreating \"GundySpider\" folder in project folder.");
+			}
+			// opens input stream from the HTTP connection
+			InputStream inputStream = httpConn.getInputStream();
+			String saveFilePath = saveDir + File.separator + fileName;
+
+			// opens an output stream to save into file
+			FileOutputStream outputStream = new FileOutputStream(saveFilePath);
+			status.setText(status.getText() + "\nDownloading ...");
+			int bytesRead = -1;
+			float sum = 0;
+			byte[] buffer = new byte[BUFFER_SIZE];
+
+			while ((bytesRead = inputStream.read(buffer)) != -1) {
+				outputStream.write(buffer, 0, bytesRead);
+				sum += bytesRead;
+				// System.out.printf( "%.2f\n", sum/(float)contentLength*100 );
+				progressBar.setValue((int) (sum / contentLength * 100));
+			}
+			outputStream.close();
+			inputStream.close();
+			status.setText(status.getText() + "\nFile Succesfully Downloaded to " + saveDir + "\n");
+		} else
+			status.setText(status.getText() + "File could not be downloaded. Server replied HTTP code: "
+					+ responseCode);
+		httpConn.disconnect();
+		ThrdDownload.stop();
+	}
+
+}
+>>>>>>> 99947bed2cb0c391913cc7a8a6d5fe3d88be93d8
